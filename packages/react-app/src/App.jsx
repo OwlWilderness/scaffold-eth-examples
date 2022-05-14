@@ -44,7 +44,7 @@ const targetNetwork = NETWORKS['localhost']; // <------- select your target fron
 const poolServerUrl = "http://localhost:49832/"
 
 // 😬 Sorry for all the console logging
-const DEBUG = true
+const DEBUG = false
 
 
 // 🛰 providers
@@ -109,7 +109,7 @@ function App(props) {
   // If you want to make 🔐 write transactions to your contracts, use the userProvider:
   const writeContracts = useContractLoader(userProvider)
 
-  const contractName = "MetaMultiSigWallet"
+  const contractName = "OwlsNestMultiSig"
 
   //📟 Listen for broadcast events
   const executeTransactionEvents = useEventListener(readContracts, contractName, "ExecuteTransaction", localProvider, 1);
@@ -197,11 +197,11 @@ function App(props) {
   if(DEBUG) console.log("✳️ signaturesRequired:",signaturesRequired)
 
   //event OpenStream( address indexed to, uint256 amount, uint256 frequency );
-  const openStreamEvents = useEventListener(readContracts, contractName, "OpenStream", localProvider, 1);
-  if(DEBUG) console.log("📟 openStreamEvents:",openStreamEvents)
+  //const openStreamEvents = useEventListener(readContracts, contractName, "OpenStream", localProvider, 1);
+  //if(DEBUG) console.log("📟 openStreamEvents:",openStreamEvents)
 
-  const withdrawStreamEvents = useEventListener(readContracts, contractName, "Withdraw", localProvider, 1);
-  if(DEBUG) console.log("📟 withdrawStreamEvents:",withdrawStreamEvents)
+  //const withdrawStreamEvents = useEventListener(readContracts, contractName, "Withdraw", localProvider, 1);
+  //if(DEBUG) console.log("📟 withdrawStreamEvents:",withdrawStreamEvents)
 
 
   const loadWeb3Modal = useCallback(async () => {
@@ -352,7 +352,7 @@ function App(props) {
           </Route>
           <Route path="/debug">
             <Contract
-              name="MetaMultiSigWallet"
+              name="OwlsNestMultiSig"
               signer={userProvider.getSigner()}
               provider={localProvider}
               address={address}

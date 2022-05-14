@@ -13,9 +13,9 @@ const main = async () => {
                     // 0xbB69eAb3c34A368151277823e36921Fb366EaE1e (ropsten/rinkeby)
                     // 0x22d63804D00b4B2BF3dE7Dd21c22aD839E62f920 (meta-wallet)
 
-  const MetaMultiSigWallet = await deploy("MetaMultiSigWallet",[
+  const MetaMultiSigWallet = await deploy("OwlsNestMultiSig",[
     31337,
-    [ "0x834a9cc3D84941d9A9C80E334E0864A50C823E0C" ],
+    ["0xc90Ecdf38215b20f4CE7A8A1346E32F78cC3B909", "0x475f2C7565d10a2738Eba14348A2991B384b29e7", "0x97843608a00e2bbc75ab0c1911387e002565dede", "0x1a4c2b35c9b4cc9f9a833a43dbe3a78fdb80bb54"],
     1
   ])
 

@@ -25,11 +25,11 @@ export default function CreateTransaction({
 }) {
   const history = useHistory();
 
-  // keep track of a variable from the contract in the local React state:
-  const nonce = useContractReader(readContracts, contractName, "nonce");
-  const calldataInputRef = useRef("0x");
+    // keep track of a variable from the contract in the local React state:
+    const nonce = useContractReader(readContracts, contractName, "nonce")
+    console.log("# nonce:",nonce)
 
-  console.log("🤗 nonce:", nonce);
+  const calldataInputRef = useRef("0x");
 
   console.log("price", price);
 
@@ -53,15 +53,16 @@ export default function CreateTransaction({
     const inputTimer = setTimeout(async () => {
       console.log("EFFECT RUNNING");
       try {
-        // if(methodName == "transferFunds"){
-        //   console.log("Send transaction selected")
-        //   console.log("🔥🔥🔥🔥🔥🔥",amount)
-        //     const calldata = readContracts[contractName].interface.encodeFunctionData("transferFunds",[to,parseEther("" + parseFloat(amount).toFixed(12))])
-        //     setData(calldata);
-        // }
-        // decodedDataObject = readContracts ? await readContracts[contractName].interface.parseTransaction({ data }) : "";
-        // console.log("decodedDataObject", decodedDataObject);
-        // setCreateTxnEnabled(true);
+         if(methodName == "transferFunds"){
+           console.log("Send transaction selected")
+           console.log("🔥🔥🔥🔥🔥🔥",amount)
+             const calldata = readContracts[contractName].interface.encodeFunctionData(methodName,[to,parseEther("" + parseFloat(amount).toFixed(12))])
+             setData(calldata);
+         }
+         decodedDataObject = readContracts ? await readContracts[contractName].interface.parseTransaction({ data }) : "";
+         console.log("decodedDataObject", decodedDataObject);
+         setCreateTxnEnabled(true);
+        
         if(decodedDataObject.signature === "addSigner(address,uint256)"){
           setMethodName("addSigner")
           setSelectDisabled(true)
@@ -140,9 +141,9 @@ export default function CreateTransaction({
 
   return (
     <div>
-      {/*
-        ⚙️ Here is an example UI that displays and sets the purpose in your smart contract:
-      */}
+        {/*
+          ⚙️ Here is an example UI that displays and sets the purpose in your smart contract:
+        */}
       <div style={{ border: "1px solid #cccccc", padding: 16, width: 400, margin: "auto", marginTop: 64 }}>
         <div style={{ margin: 8 }}>
           <div style={inputStyle}>
@@ -156,7 +157,7 @@ export default function CreateTransaction({
           </div>
                   <div style={{margin:8,padding:8}}>
           <Select value={methodName} disabled={selectDisabled} style={{ width: "100%" }} onChange={ setMethodName }>
-            //<Option key="transferFunds">transferFunds()</Option>
+            <Option key="transferFunds">transferFunds()</Option>
             <Option disabled={true} key="addSigner">addSigner()</Option>
             <Option disabled={true} key="removeSigner">removeSigner()</Option>
           </Select>
@@ -190,11 +191,11 @@ export default function CreateTransaction({
             style={{ marginTop: 32 }}
             disabled={!isCreateTxnEnabled}
             onClick={async () => {
-              // setData(calldataInputRef.current.state.value)
-              // if (data && data == "0x") {
-              //   setResult("ERROR, Call Data Invalid");
-              //   return;
-              // }
+               setData(calldataInputRef.current.state.value)
+               if (data && data == "0x") {
+                 setResult("ERROR, Call Data Invalid");
+                 return;
+               }
               console.log("customNonce", customNonce);
               const nonce = customNonce || (await readContracts[contractName].nonce());
               console.log("nonce", nonce);

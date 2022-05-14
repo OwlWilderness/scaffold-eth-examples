@@ -51,31 +51,31 @@ module.exports = {
       */
     },
     rinkeby: {
-      url: "https://rinkeby.infura.io/v3/568af3da01a043ecb2ac80bf69927b38", //<---- YOUR INFURA ID! (or it won't work)
+      url: "https://rinkeby.infura.io/v3/58daabf0f6e3462aa9aef8ccb9f4ead4", //<---- YOUR INFURA ID! (or it won't work)
       accounts: {
         mnemonic: mnemonic(),
       },
     },
     kovan: {
-      url: "https://kovan.infura.io/v3/62e4d4d8e861447686db464b423bc591", //<---- YOUR INFURA ID! (or it won't work)
+      url: "https://kovan.infura.io/v3/58daabf0f6e3462aa9aef8ccb9f4ead4", //<---- YOUR INFURA ID! (or it won't work)
       accounts: {
         mnemonic: mnemonic(),
       },
     },
     mainnet: {
-      url: "https://mainnet.infura.io/v3/62e4d4d8e861447686db464b423bc591", //<---- YOUR INFURA ID! (or it won't work)
+      url: "https://mainnet.infura.io/v3/58daabf0f6e3462aa9aef8ccb9f4ead4", //<---- YOUR INFURA ID! (or it won't work)
       accounts: {
         mnemonic: mnemonic(),
       },
     },
     ropsten: {
-      url: "https://ropsten.infura.io/v3/62e4d4d8e861447686db464b423bc591", //<---- YOUR INFURA ID! (or it won't work)
+      url: "https://ropsten.infura.io/v3/58daabf0f6e3462aa9aef8ccb9f4ead4", //<---- YOUR INFURA ID! (or it won't work)
       accounts: {
         mnemonic: mnemonic(),
       },
     },
     goerli: {
-      url: "https://goerli.infura.io/v3/62e4d4d8e861447686db464b423bc591", //<---- YOUR INFURA ID! (or it won't work)
+      url: "https://goerli.infura.io/v3/58daabf0f6e3462aa9aef8ccb9f4ead4", //<---- YOUR INFURA ID! (or it won't work)
       accounts: {
         mnemonic: mnemonic(),
       },
@@ -120,7 +120,7 @@ module.exports = {
   etherscan: {
     // Your API key for Etherscan
     // Obtain one at https://etherscan.io/
-    apiKey: "PSW8C433Q667DVEX5BCRMGNAH9FSGFZ7Q8"
+    apiKey: "TURDV4MKG3ZVVTE1JGFD4CRQTV7XUGVJH5"
   }
 };
 
